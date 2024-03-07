@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export function SearchMovies() {
 
+	const [keyword, setKeyword] = useState("terror")
+	const [movies, setMovies] = useState([])
+	const busqueda = useRef();
 	const moviesDefault = [
 		{
 			"Title": "Parchís",
@@ -15,13 +18,13 @@ export function SearchMovies() {
 		}
 	]
 
-	const [movies, setMovies] = useState([])
-
 	const loadPeliculas = async () => {
-		await fetch("https://www.omdbapi.com/?i=tt3896198&apikey=8115c0de")
+		await fetch(`https://www.omdbapi.com/?s=${keyword}&apikey=8115c0de`)
 			.then(response => response.json())
 			.then(data => {
-				setMovies([data, ...moviesDefault])
+				setMovies(data.Search)
+				console.log(`https://www.omdbapi.com/?s=${keyword}&apikey=8115c0de`);
+				console.log(movies);
 			})
 			.catch(error => { console.log(error); })
 	}
@@ -33,11 +36,21 @@ export function SearchMovies() {
 
 	useEffect(() => {
 		console.log("SE ACTUALIZO");
+	}, [keyword])
 
-	}, [movies])
+	const handlerOnChange = (e) => {
+		setKeyword(e.target.value)
+	}
 
-	const keyword = 'PELÍCULA DEMO';
-
+	const handlerSearch = async (e) => {
+		e.preventDefault()
+		await fetch(`https://www.omdbapi.com/?s=${busqueda.current.value}&apikey=8115c0de`)
+			.then(response => response.json())
+			.then(data => {
+				setMovies(data.Search || moviesDefault)
+			})
+			.catch(error => { console.log(error); })
+	}
 	// Credenciales de API
 	const apiKey = '8115c0de'; // Intenta poner cualquier cosa antes para probar
 
@@ -49,12 +62,12 @@ export function SearchMovies() {
 						<div className="row my-4">
 							<div className="col-12 col-md-6">
 								{/* Buscador */}
-								<form method="GET">
+								<form method="GET" onSubmit={handlerSearch}>
 									<div className="form-group">
 										<label htmlFor="">Buscar por título:</label>
-										<input type="text" className="form-control" />
+										<input type="text" className="form-control" onChange={handlerOnChange} ref={busqueda} />
 									</div>
-									<button className="btn btn-info">Search</button>
+									<button className="btn btn-info" >Search</button>
 								</form>
 							</div>
 						</div>
