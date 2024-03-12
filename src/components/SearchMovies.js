@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 export function SearchMovies() {
 
-	const [keyword, setKeyword] = useState("terror")
+	const [keyword, setKeyword] = useState("test")
 	const [movies, setMovies] = useState([])
 	const busqueda = useRef();
 	const moviesDefault = [
@@ -38,11 +38,8 @@ export function SearchMovies() {
 		console.log("SE ACTUALIZO");
 	}, [keyword])
 
-	const handlerOnChange = (e) => {
-		setKeyword(e.target.value)
-	}
-
 	const handlerSearch = async (e) => {
+		setKeyword(busqueda.current.value)
 		e.preventDefault()
 		await fetch(`https://www.omdbapi.com/?s=${busqueda.current.value}&apikey=8115c0de`)
 			.then(response => response.json())
@@ -65,7 +62,7 @@ export function SearchMovies() {
 								<form method="GET" onSubmit={handlerSearch}>
 									<div className="form-group">
 										<label htmlFor="">Buscar por título:</label>
-										<input type="text" className="form-control" onChange={handlerOnChange} ref={busqueda} />
+										<input type="text" className="form-control" ref={busqueda} />
 									</div>
 									<button className="btn btn-info" >Search</button>
 								</form>
