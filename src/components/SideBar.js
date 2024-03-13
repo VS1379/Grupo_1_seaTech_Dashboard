@@ -4,6 +4,9 @@ import ContentWrapper from './ContentWrapper';
 import GenresInDb from './GenresInDb';
 import LastMovieInDb from './LastMovieInDb';
 import ContentRowMovies from './ContentRowMovies';
+import ContentRowTop from './ContentRowTop';
+import Chart from './Chart';
+import Products from './Products';
 import { SearchMovies } from "./SearchMovies";
 import NotFound from './NotFound';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -51,6 +54,12 @@ function SideBar() {
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Charts</span></Link>
                 </li>
+                {/*<!-- Nav Item - Chart -->*/}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/Products">
+                        <i className="fas fa-fw fa-chart-area"></i>
+                        <span>Productos</span></Link>
+                </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
@@ -63,33 +72,33 @@ function SideBar() {
                 <hr className="sidebar-divider d-none d-md-block" />
             </ul>
             {/*<!-- End of Sidebar -->*/}
-
-            {/*<!-- Microdesafio 1 -->*/}
-            {/*<!--<Route exact path="/">
-                <ContentWrapper />
-            </Route>
-            <Route path="/GenresInDb">
-                <GenresInDb />
-            </Route>
-            <Route path="/LastMovieInDb">
-                <LastMovieInDb />
-            </Route>
-            <Route path="/ContentRowMovies">
-                <ContentRowMovies />
-            </Route>*/}
-            {/*<!-- End Microdesafio 1 -->*/}
-
-            {/*<!-- End Microdesafio 2 -->*/}
             <Routes>
                 <Route exact path="/" element={<ContentWrapper />} />
                 <Route path="/GenresInDb" element={<GenresInDb />} />
                 <Route path="/LastMovieInDb" element={<LastMovieInDb />} />
                 <Route path="/ContentRowMovies" element={<ContentRowMovies />} />
                 <Route path='/SearchMovies' element={<SearchMovies />} />
+                <Route path='/ContentRowTop' element={<ContentRowTop />} />
+                <Route path='/Chart' element={<Chart />} />
+                <Route path='/Products' element={<Products />} />
                 <Route component={NotFound} />
             </Routes>
-            {/*<!-- End Microdesafio 2 -->*/}
         </>
     )
+
+    /*
+    <Route exact path="/">
+        <ContentWrapper />
+    </Route>
+    <Route path="/GenresInDb">
+        <GenresInDb />
+    </Route>
+    <Route path="/LastMovieInDb">
+        <LastMovieInDb />
+    </Route>
+    <Route path="/ContentRowMovies">
+        <ContentRowMovies />
+    </Route>
+*/
 }
 export default SideBar;
