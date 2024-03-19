@@ -7,6 +7,8 @@ import ContentRowMovies from './ContentRowMovies';
 import ContentRowTop from './ContentRowTop';
 import Chart from './Chart';
 import Products from './Products';
+import Users from './Users';
+import Categories from './Categories';
 import { SearchMovies } from "./SearchMovies";
 import NotFound from './NotFound';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -60,6 +62,16 @@ function SideBar() {
                         <i className="fas fa-fw fa-chart-area"></i>
                         <span>Productos</span></Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/Users">
+                        <i className="fas fa-fw fa-chart-area"></i>
+                        <span>Users</span></Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/Categories">
+                        <i className="fas fa-fw fa-chart-area"></i>
+                        <span>Categories</span></Link>
+                </li>
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
@@ -81,6 +93,8 @@ function SideBar() {
                 <Route path='/ContentRowTop' element={<ContentRowTop />} />
                 <Route path='/Chart' element={<Chart />} />
                 <Route path='/Products' element={<Products />} />
+                <Route path='/Users' element={<Users />} />
+                <Route path='/Categories' element={<Categories />} />
                 <Route component={NotFound} />
             </Routes>
         </>

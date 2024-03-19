@@ -3,16 +3,52 @@ import UsersRow from "./UsersRow";
 
 let tableRowsData = [
   {
-    Title: "Velero MISFORTUNE",
-    Model: "2020",
+    Nombre: "JUANCITO",
+    Apellido: "PELUQUERO",
+    Dni: "4355222",
     Color: "Rojo",
-    Category: ["Velero", "Barco"],
   },
   {
-    Title: "Yate",
-    Model: "2024",
-    Color: "Blanco",
-    Category: ["Yate", "Barco", "Grande"],
+    Nombre: "PEPITO",
+    Apellido: "BARBERzsd",
+    Dni: "11111111",
+    Color: "Amarillo",
+  },
+  {
+    Nombre: "JUANCITO",
+    Apellido: "PELUQUERO",
+    Dni: "4355222",
+    Color: "Rojo",
+  },
+  {
+    Nombre: "PEPITO",
+    Apellido: "BARBERzsd",
+    Dni: "11111111",
+    Color: "Amarillo",
+  },
+  {
+    Nombre: "JUANCITO",
+    Apellido: "PELUQUERO",
+    Dni: "4355222",
+    Color: "Rojo",
+  },
+  {
+    Nombre: "PEPITO",
+    Apellido: "BARBERzsd",
+    Dni: "11111111",
+    Color: "Amarillo",
+  },
+  {
+    Nombre: "JUANCITO",
+    Apellido: "PELUQUERO",
+    Dni: "4355222",
+    Color: "Rojo",
+  },
+  {
+    Nombre: "PEPITO",
+    Apellido: "BARBERzsd",
+    Dni: "11111111",
+    Color: "Amarillo",
   },
 ];
 
@@ -21,7 +57,7 @@ function Users() {
     /* <!-- DataTales Example --> */
     <div className="container-fluid">
       <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
-        <h1 className="h3 mb-0 text-gray-800">Productos</h1>
+        <h1 className="h3 mb-0 text-gray-800">Users</h1>
       </div>
 
       <div className="card shadow mb-4">
@@ -35,23 +71,23 @@ function Users() {
             >
               <thead>
                 <tr>
-                  <th>Título</th>
-                  <th>Model</th>
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Dni</th>
                   <th>Color</th>
-                  <th>Categories</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>Título</th>
-                  <th>Model</th>
-                  <th>Color</th>
-                  <th>Categories</th>
+                  <th>---</th>
+                  <th>---</th>
+                  <th>---</th>
+                  <th>---</th>
                 </tr>
               </tfoot>
               <tbody>
                 {tableRowsData.map((row, i) => {
-                  return <ProductRow {...row} key={i} />;
+                  return <UsersRow {...row} key={i} />;
                 })}
               </tbody>
             </table>

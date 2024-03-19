@@ -1,18 +1,12 @@
 import React from "react";
 
-function UsersRow({ Title, Model, Color, Category }) {
+function UsersRow({ Nombre, Apellido, Dni, Color }) {
   return (
     <tr>
-      <td>{Title}</td>
-      <td>{Model}</td>
+      <td>{Nombre}</td>
+      <td>{Apellido}</td>
+      <td>{Dni}</td>
       <td>{Color}</td>
-      <td>
-        <ul>
-          {Category.map((Category, i) => (
-            <li key={`Category ${i}`}>{Category}</li>
-          ))}
-        </ul>
-      </td>
     </tr>
   );
 }
