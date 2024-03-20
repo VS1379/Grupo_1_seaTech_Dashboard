@@ -1,6 +1,6 @@
 import React from "react";
-
-function ProductRow({ Title, Model, Color, Category }) {
+import ProductDetail from "./ProductDetail";
+function ProductRow({ id, Title, Model, Color, Category }) {
   return (
     <tr>
       <td>{Title}</td>
@@ -12,6 +12,18 @@ function ProductRow({ Title, Model, Color, Category }) {
             <li key={`Category ${i}`}>{Category}</li>
           ))}
         </ul>
+      </td>
+      <td>
+        <button>
+          <a
+            className="btn"
+            target="_blank"
+            rel="nofollow"
+            href={"/ProductDetail/" + id}
+          >
+            Detalle del producto
+          </a>
+        </button>
       </td>
     </tr>
   );

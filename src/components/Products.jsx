@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductRow from "./ProductRow";
-
-let tableRowsData = [
-  {
-    Title: "Velero MISFORTUNE",
-    Model: "2020",
-    Color: "Rojo",
-    Category: ["Velero", "Barco"],
-  },
-  {
-    Title: "Yate",
-    Model: "2024",
-    Color: "Blanco",
-    Category: ["Yate", "Barco", "Grande"],
-  },
-];
+import { ProductsAPI } from "../services/ProductsAPI";
 
 function Products() {
+  useEffect(() => {
+    console.log("MONTADO");
+  }, []);
+  useEffect(() => {
+    console.log("ACTUALIZADO");
+    let tableRowsData = ProductsAPI.get().then((result) => {
+      return result.data;
+    });
+    console.log(tableRowsData);
+    {
+      tableRowsData?.map((row, i) => {
+        return <ProductRow {...row} key={i} />;
+      });
+    }
+  }, [tableRowsData]);
   return (
     /* <!-- DataTales Example --> */
     <div className="container-fluid">
@@ -39,21 +40,11 @@ function Products() {
                   <th>Model</th>
                   <th>Color</th>
                   <th>Categories</th>
+                  <th></th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>Título</th>
-                  <th>Model</th>
-                  <th>Color</th>
-                  <th>Categories</th>
-                </tr>
-              </tfoot>
-              <tbody>
-                {tableRowsData.map((row, i) => {
-                  return <ProductRow {...row} key={i} />;
-                })}
-              </tbody>
+              <tfoot></tfoot>
+              <tbody></tbody>
             </table>
           </div>
         </div>

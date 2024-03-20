@@ -9,6 +9,7 @@ import Chart from './Chart';
 import Products from './Products';
 import Users from './Users';
 import Categories from './Categories';
+import ProductDetail from './ProductDetail';
 import { SearchMovies } from "./SearchMovies";
 import NotFound from './NotFound';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -92,9 +93,10 @@ function SideBar() {
                 <Route path='/SearchMovies' element={<SearchMovies />} />
                 <Route path='/ContentRowTop' element={<ContentRowTop />} />
                 <Route path='/Chart' element={<Chart />} />
-                <Route path='/Products' element={<Products />} />
                 <Route path='/Users' element={<Users />} />
                 <Route path='/Categories' element={<Categories />} />
+                <Route path='/Products' element={<Products />} />
+                <Route path='/ProductDetail/:id' element={<ProductDetail />} />
                 <Route component={NotFound} />
             </Routes>
         </>
