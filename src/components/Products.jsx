@@ -1,23 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ProductRow from "./ProductRow";
 import { ProductsAPI } from "../services/ProductsAPI";
 
 function Products() {
+  const [tableRowsData, setTableRowsData] = useState([]);
+
   useEffect(() => {
     console.log("MONTADO");
+    const fetchData = async () => {
+      try {
+        const data = await ProductsAPI.get();
+        setTableRowsData(data.data);
+      } catch (error) {
+        console.error("Error al obtener los productos:", error);
+      }
+    };
+
+    fetchData();
   }, []);
+
   useEffect(() => {
     console.log("ACTUALIZADO");
-    let tableRowsData = ProductsAPI.get().then((result) => {
-      return result.data;
-    });
     console.log(tableRowsData);
-    {
-      tableRowsData?.map((row, i) => {
-        return <ProductRow {...row} key={i} />;
-      });
-    }
   }, [tableRowsData]);
+
   return (
     /* <!-- DataTales Example --> */
     <div className="container-fluid">
@@ -36,15 +42,19 @@ function Products() {
             >
               <thead>
                 <tr>
-                  <th>Título</th>
-                  <th>Model</th>
-                  <th>Color</th>
-                  <th>Categories</th>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Modelo</th>
+                  <th>Descripcion</th>
                   <th></th>
                 </tr>
               </thead>
               <tfoot></tfoot>
-              <tbody></tbody>
+              <tbody>
+                {tableRowsData.map((row, i) => {
+                  return <ProductRow {...row} key={i} />;
+                })}
+              </tbody>
             </table>
           </div>
         </div>

@@ -8,6 +8,7 @@ export const ProductsAPI = {
       throw error;
     }
   },
+
   async getById(id) {
     try {
       const response = await fetch(

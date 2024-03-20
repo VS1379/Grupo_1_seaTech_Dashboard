@@ -101,20 +101,5 @@ function SideBar() {
             </Routes>
         </>
     )
-
-    /*
-    <Route exact path="/">
-        <ContentWrapper />
-    </Route>
-    <Route path="/GenresInDb">
-        <GenresInDb />
-    </Route>
-    <Route path="/LastMovieInDb">
-        <LastMovieInDb />
-    </Route>
-    <Route path="/ContentRowMovies">
-        <ContentRowMovies />
-    </Route>
-*/
 }
 export default SideBar;

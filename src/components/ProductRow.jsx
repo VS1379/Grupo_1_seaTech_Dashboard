@@ -1,17 +1,18 @@
 import React from "react";
 import ProductDetail from "./ProductDetail";
-function ProductRow({ id, Title, Model, Color, Category }) {
+function ProductRow({ id, name, price, year, description }) {
   return (
     <tr>
-      <td>{Title}</td>
-      <td>{Model}</td>
-      <td>{Color}</td>
+      <td>{name}</td>
+      <td>{price}</td>
+      <td>{year}</td>
+      <td>{description}</td>
       <td>
-        <ul>
+        {/* <ul>
           {Category.map((Category, i) => (
             <li key={`Category ${i}`}>{Category}</li>
           ))}
-        </ul>
+        </ul> */}
       </td>
       <td>
         <button>
