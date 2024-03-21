@@ -1,18 +1,34 @@
 import React from "react";
 import CategoriesRow from "./CategoriesRow";
-
-let tableRowsData = [
-  {
-    Categories: ["Velero", "MotoAgua", "Yate", "Barco"],
-  },
-];
+import { CategoriesAPI } from "../services/CategoriesAPI";
+import { useEffect, useState } from "react";
 
 function Categories() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    console.log("MONTADO");
+    const fetchData = async () => {
+      try {
+        const data = await CategoriesAPI.get();
+        setCategories(data.data);
+      } catch (error) {
+        console.error("Error al obtener los productos:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log("ACTUALIZADO");
+    console.log(categories);
+  }, [categories]);
   return (
     /* <!-- DataTales Example --> */
     <div className="container-fluid">
       <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
-        <h1 className="h3 mb-0 text-gray-800">Categories</h1>
+        <h1 className="h3 mb-0 text-gray-800 m-5">Categories</h1>
       </div>
 
       <div className="card shadow mb-4">
@@ -26,11 +42,11 @@ function Categories() {
             >
               <thead>
                 <tr>
-                  <th>Nombre</th>
+                  <th class="text-left display-4">Tipos de Categoria</th>
                 </tr>
               </thead>
               <tbody>
-                {tableRowsData.map((row, i) => {
+                {categories.map((row, i) => {
                   return <CategoriesRow {...row} key={i} />;
                 })}
               </tbody>

@@ -28,7 +28,7 @@ function Products() {
     /* <!-- DataTales Example --> */
     <div className="container-fluid">
       <div className="d-sm-flex aligns-items-center justify-content-between mb-4">
-        <h1 className="h3 mb-0 text-gray-800">Productos</h1>
+        <h1 className="h3 mb-0 text-gray-800 m-5">Productos</h1>
       </div>
 
       <div className="card shadow mb-4">

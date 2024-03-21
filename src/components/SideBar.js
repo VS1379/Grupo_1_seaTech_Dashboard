@@ -1,9 +1,8 @@
 import React from 'react';
-import image from '../assets/images/logo-DH.png';
+import image from '../assets/images/seatech-logo-hd.png';
 import ContentWrapper from './ContentWrapper';
-import GenresInDb from './GenresInDb';
-import LastMovieInDb from './LastMovieInDb';
-import ContentRowMovies from './ContentRowMovies';
+import LastProductInDb from './LastProductInDb';
+import CategoriesQuantity from './CategoriesQuantity';
 import ContentRowTop from './ContentRowTop';
 import Chart from './Chart';
 import Products from './Products';
@@ -22,9 +21,11 @@ function SideBar() {
             <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
-                <a className="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+                <a className="sidebar-brand d-flex align-items-center justify-content-center my-4   " href="/">
                     <div className="sidebar-brand-icon">
-                        <img className="w-100" src={image} alt="Digital House" />
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img className="w-50 h-50" src={image} alt="SeaTech" />
+                        </div>
                     </div>
                 </a>
 
@@ -44,19 +45,11 @@ function SideBar() {
                 {/*<!-- Heading -->*/}
                 <div className="sidebar-heading">Actions</div>
 
-                {/*<!-- Nav Item - Pages -->*/}
-                <li className="nav-item">
-                    <Link className="nav-link" to="/GenresInDb">
-                        <i className="fas fa-fw fa-folder"></i>
-                        <span>Pages</span>
-                    </Link>
-                </li>
-
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/LastMovieInDb">
+                    <Link className="nav-link" to="/LastProductInDb">
                         <i className="fas fa-fw fa-chart-area"></i>
-                        <span>Charts</span></Link>
+                        <span>Ultimo Producto</span></Link>
                 </li>
                 {/*<!-- Nav Item - Chart -->*/}
                 <li className="nav-item">
@@ -77,9 +70,9 @@ function SideBar() {
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item nav-link">
-                    <Link className="nav-link" to="/ContentRowMovies">
+                    <Link className="nav-link" to="/CategoriesQuantity">
                         <i className="fas fa-fw fa-table"></i>
-                        <span>Tables</span></Link>
+                        <span>Cantidad por Categorias</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
@@ -88,9 +81,8 @@ function SideBar() {
             {/*<!-- End of Sidebar -->*/}
             <Routes>
                 <Route exact path="/" element={<ContentWrapper />} />
-                <Route path="/GenresInDb" element={<GenresInDb />} />
-                <Route path="/LastMovieInDb" element={<LastMovieInDb />} />
-                <Route path="/ContentRowMovies" element={<ContentRowMovies />} />
+                <Route path="/LastProductInDb" element={<LastProductInDb />} />
+                <Route path="/CategoriesQuantity" element={<CategoriesQuantity />} />
                 <Route path='/SearchMovies' element={<SearchMovies />} />
                 <Route path='/ContentRowTop' element={<ContentRowTop />} />
                 <Route path='/Chart' element={<Chart />} />

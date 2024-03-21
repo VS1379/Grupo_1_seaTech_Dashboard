@@ -1,17 +1,9 @@
 import React from "react";
 
-function CategoriesRow({ Categories }) {
+function CategoriesRow({ name }) {
   return (
     <tr>
-      <td>
-        {Categories.map((Categoria) => {
-          return (
-            <tr>
-              <td>{Categoria}</td>
-            </tr>
-          );
-        })}
-      </td>
+      <td class="text-center display-4">{name}</td>
     </tr>
   );
 }

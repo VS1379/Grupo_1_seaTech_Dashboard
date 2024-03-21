@@ -88,7 +88,6 @@ El dashboard deberá contener al menos:
 ○ Total de categorías
 ● Panel de detalle de último producto o usuario creado.
 ● Panel de categorías con el total de productos de cada una.
-● Panel con el listado de productos.
 
 (Opcional) Funcionalidades adicionales:
 ● Total de productos vendidos / total de ventas.
