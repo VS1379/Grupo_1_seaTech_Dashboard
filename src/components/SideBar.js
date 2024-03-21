@@ -4,7 +4,6 @@ import ContentWrapper from './ContentWrapper';
 import LastProductInDb from './LastProductInDb';
 import CategoriesQuantity from './CategoriesQuantity';
 import ContentRowTop from './ContentRowTop';
-import Chart from './Chart';
 import Products from './Products';
 import Users from './Users';
 import Categories from './Categories';
@@ -85,7 +84,6 @@ function SideBar() {
                 <Route path="/CategoriesQuantity" element={<CategoriesQuantity />} />
                 <Route path='/SearchMovies' element={<SearchMovies />} />
                 <Route path='/ContentRowTop' element={<ContentRowTop />} />
-                <Route path='/Chart' element={<Chart />} />
                 <Route path='/Categories' element={<Categories />} />
                 <Route path='/Products' element={<Products />} />
                 <Route path='/ProductDetail/:id' element={<ProductDetail />} />

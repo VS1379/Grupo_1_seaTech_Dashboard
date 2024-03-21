@@ -1,7 +1,6 @@
 import React from 'react';
 import ContentRowCenter from './ContentRowCenter';
 import CategoriesQuantity from './CategoriesQuantity';
-import Chart from './Chart';
 import Products from './Products';
 
 function ContentRowTop() {
