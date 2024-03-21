@@ -46,7 +46,7 @@ function Products() {
                   <th>Precio</th>
                   <th>Modelo</th>
                   <th>Descripcion</th>
-                  <th></th>
+                  <th>Mas Detalles</th>
                 </tr>
               </thead>
               <tfoot></tfoot>

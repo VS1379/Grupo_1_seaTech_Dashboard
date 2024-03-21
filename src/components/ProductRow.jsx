@@ -7,13 +7,11 @@ function ProductRow({ id, name, price, year, description }) {
       <td>{price}</td>
       <td>{year}</td>
       <td>{description}</td>
-      <td>
-        {/* <ul>
+      {/* <ul>
           {Category.map((Category, i) => (
             <li key={`Category ${i}`}>{Category}</li>
           ))}
         </ul> */}
-      </td>
       <td>
         <button>
           <a

@@ -10,6 +10,7 @@ import Products from './Products';
 import Users from './Users';
 import Categories from './Categories';
 import ProductDetail from './ProductDetail';
+import UserDetail from './UserDetail';
 import { SearchMovies } from "./SearchMovies";
 import NotFound from './NotFound';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -93,10 +94,11 @@ function SideBar() {
                 <Route path='/SearchMovies' element={<SearchMovies />} />
                 <Route path='/ContentRowTop' element={<ContentRowTop />} />
                 <Route path='/Chart' element={<Chart />} />
-                <Route path='/Users' element={<Users />} />
                 <Route path='/Categories' element={<Categories />} />
                 <Route path='/Products' element={<Products />} />
                 <Route path='/ProductDetail/:id' element={<ProductDetail />} />
+                <Route path='/Users' element={<Users />} />
+                <Route path='/UserDetail/:id' element={<UserDetail />} />
                 <Route component={NotFound} />
             </Routes>
         </>
